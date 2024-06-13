@@ -18,6 +18,7 @@ import videoRoutes from "./routes/dashboard/videoRoutes";
 import updateRecipientStatusRoute from "./routes/gettingResponse/updateRecipientStatusRoute";
 import findingVideoIdRoute from "./routes/gettingResponse/findingVideoRoute";
 import workspaceRoutes from "./routes/workspaceRoutes";
+import healthRoutes from "./routes/healthRoutes"
 // import { User } from "../../web/types/index";
 
 app.use(cors());
@@ -101,6 +102,7 @@ app.use("/api", videoRoutes);
 app.use("/api", updateRecipientStatusRoute);
 app.use("/api", findingVideoIdRoute);
 app.use("/api", workspaceRoutes);
+app.use("/api", healthRoutes);
 
 
 app.get("/api/home", (req: Request, res: Response) => {
