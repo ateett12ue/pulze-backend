@@ -19,6 +19,6 @@ router.post(
   upload.single("file"),
   uploadVideoAndCreateComment
 );
-router.delete("/comments/deletecomment/:commentId", deleteComment);
+router.post("/comments/deletecomment/:commentId", deleteComment);
 
 export default router;

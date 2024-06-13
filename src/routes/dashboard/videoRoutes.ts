@@ -8,6 +8,6 @@ const router: Router = express.Router();
 
 router.get("/getvideos/:userId/:workspaceId", getVideosCreatedByUser);
 router.get("/recievedvideos/:userId/:workspaceId", recievedVideos);
-router.delete("/deletevideo", deleteVideo);
+router.post("/deletevideo", deleteVideo);
 
 export default router;

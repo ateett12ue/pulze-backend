@@ -4,6 +4,6 @@ import { updateRecipientStatus } from "../../controllers/gettingResponse/updateR
 
 const router: Router = express.Router();
 
-router.put("/updateRecipientStatus", updateRecipientStatus);
+router.post("/updateRecipientStatus", updateRecipientStatus);
 
 export default router;
