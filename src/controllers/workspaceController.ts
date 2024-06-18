@@ -12,6 +12,8 @@ export const createNewWorkspaceContoller = async (req: Request, res: Response) =
       return res.status(400).json({ error: "Creater ID is required" });
     }
 
+    // const workspacefind = await prisma.workspace.findUnique({ where: { name: workspace_name, workspace_creator_id: creater_id } });
+
     const workspace = await prisma.workspace.create({
         data: {
           name: workspace_name,
@@ -244,7 +246,7 @@ export const leaveWorkspaceContoller = async (req: Request, res: Response) => {
       })
 
       if (!user?.id) {
-        return res.status(400).json({ error: "User ID not found, invite" });
+        return res.status(400).json({ error: "User ID not found" });
       }
   
       const workspace = await prisma.workspace.findUnique({
