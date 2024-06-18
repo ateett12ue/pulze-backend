@@ -12,7 +12,11 @@ export const createNewWorkspaceContoller = async (req: Request, res: Response) =
       return res.status(400).json({ error: "Creater ID is required" });
     }
 
-    // const workspacefind = await prisma.workspace.findUnique({ where: { name: workspace_name, workspace_creator_id: creater_id } });
+    const workspacefind = await prisma.workspace.findFirst({ where: { name: workspace_name, workspace_creator_id: creater_id } });
+    if(workspacefind?.workspace_id)
+    {
+      return res.status(500).json({ error: "Workspace with same name already exist" });
+    }
 
     const workspace = await prisma.workspace.create({
         data: {
