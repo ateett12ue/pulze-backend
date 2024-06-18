@@ -5,13 +5,9 @@ generator client {
   provider = "prisma-client-js"
   output   = "../node_modules/.prisma/client"
 }
-
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-  
-  
-
   relationMode = "prisma"
 }
 
@@ -197,6 +193,8 @@ model Workspace {
     workspace_members     WorkspaceMember[]    // Reference to WorkspaceMember model
     videos                Video[]               // Added opposite relation
     sendVideos    SendVideo[] 
+    @@unique([workspace_creator_id, name])  // Unique constraint to prevent duplicate names for the same creator
+
 }
 
 model WorkspaceMember {
