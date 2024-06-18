@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 // import User from "../model/usermodel";
 import { config } from "dotenv";
-import { PrismaClient } from "../../node_modules/.prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -93,15 +93,15 @@ export const registerOrLogin = async (req: Request, res: Response) => {
           // console.log(isPasswordValid);
 
           return res
-            .status(401)
+            .status(500)
             .json({ status: "error", error: "Incorrect password" });
         }
       }
     }
   } catch (error) {
-    res.json({
+    res.status(500).json({
       status: "error",
-      error: "Authentication error occurredence",
+      error: "authentication failed",
       user: oneUser,
     });
   }
