@@ -21,15 +21,12 @@ config();
 //   }
 
 export const uploadVideo = async (req: Request, res: Response) => {
-  console.log("called upload Video");
   // console.log("Request object:", req);
   const { file } = req as any;
   const { title, description, userId, selectWorkspaceId } = req.body as any; // Assuming you are using a middleware to handle file uploads
   // console.log(`file:${file}`);
   // console.log(`title:${title}`);
   // console.log(`description:${description}`);
-  console.log("workspaceId", selectWorkspaceId);
-
   if (!file) {
     return res.status(400).json({ error: "No file provided" });
   }

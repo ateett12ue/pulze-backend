@@ -158,9 +158,9 @@ export const updateUserNameContoller = async (req: Request, res: Response) => {
       data: { name: user_name },
     });
 
-    const user = await prisma.workspace.findUnique({where:{ workspace_id: String(user_id) }});
+    // const user = await prisma.user.findUnique({where:{ id: String(user_id) }});
 
-    return res.json({ user });
+    return res.json({ updatedRecipient });
 
   } catch (error) {
     console.error(error);
